@@ -1,0 +1,6 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.piat.upm.es/datosSchema" 
+    xmlns:tns="http://www.piat.upm.es/datosSchema">
+
+    <xsd:import namespace="http://www.piat.upm.es/propietarioSchema" schemaLocation="./propietarioSchema.xsd"/>
+    <xsd:import namespace="http://www.piat.upm.es/imagenSchema" schemaLocation="./imagenSchema.xsd"/>
+</xsd:schema>

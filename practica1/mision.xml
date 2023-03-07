@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<tns:mision xmlns:tns="http://ejemplo.com/esquema/misionSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:schemaLocation="http://ejemplo.com/esquema/misionSchema ./misionSchema.xsd">
+    <identificacion codigoMision="A123sd">
+
+        <descripcion>
+            <keyword>reparar</keyword>
+            <keyword>conexión</keyword>
+            <keyword>una torre de media tensión</keyword>
+        </descripcion>
+
+        <tns:drones>
+            <!-- Va a haber varios drones-->
+            <dron>
+                <claseDron>
+                    (autónomo, controlado, monitorizado) (numMotores)
+                </claseDron>
+                <homologaciones>
+                    <nacional></nacional>
+                    <internacional></internacional>
+                </homologaciones>
+                <configuracionesDron>
+                    <sensores>
+                        <numeroSensores></numeroSensores>
+                        <sensor idSensor="SEN4-sm">
+                            <elementoSensado>
+                                <!-- contiene una especificación de qué elemento de la naturaleza marina
+                                detecta el sensor. Ej: Salinidad del agua-->
+                            </elementoSensado>
+                            <rango>
+                                <!-- lista de 3 números, mx y min % de error de las medidas-->
+                                1.5 15.5 4
+                            </rango>
+                        </sensor>
+                        <actuadores>
+                            <numeroActuadores>
+                                <!-- contiene el número de actuadores que tiene el dron-->
+                            </numeroActuadores>
+
+                            <!-- varios actuadores-->
+                            <actuador idActuador="AC$04">
+                            </actuador>
+                            <alcanceActuacion>
+                                <tipoActuacion>
+                                    <!-- cadena de caracteres que especifica la actuación-->
+                                </tipoActuacion>
+                                <fechasActuacion>
+                                    <!-- lista de dos fechas en formato yyyy-mm-dd
+                                    que especifican el inicion y fun de la validez de la actuación-->
+                                </fechasActuacion>
+                            </alcanceActuacion>
+                        </actuadores>
+                    </sensores>
+                </configuracionesDron>
+                <matriculaDron>
+                    <!-- palabra de 5 caracteres de longitud con el número
+                    de identificación-->
+                </matriculaDron>
+            </dron>
+        </tns:drones>
+        <tareas>
+            <!-- varias tareas-->
+            <tarea idTarea="TAR-10424">
+                <descripcionTarea>
+                    <!-- descripcion de la tarea-->
+                </descripcionTarea>
+                <responsableTarea>
+                    <email></email>
+                    <url></url>
+                </responsableTarea>
+                <dronesTarea>
+                    <!-- varios dronTarea-->
+                    <dronTarea>
+                        <!-- matriculaDron tiene que estar en alguno de los atributos matriculaDron del elemento dron-->
+                        <matricula matriculaDron=""></matricula>
+                        <actividadMision></actividadMision>
+                    </dronTarea>
+                </dronesTarea>
+                <areaGeografica>
+                    <centro>
+                        <longitud></longitud>
+                        <latitud></latitud>
+                    </centro>
+                    <profundidad></profundidad>
+                    <forma>
+                        (esfera, cilindro o paralelepípedo)
+                    </forma>
+                </areaGeografica>
+            </tarea>
+            crear varias tareas más con el mismo esquema
+        </tareas>
+    </identificacion>
+    
+</tns:mision>

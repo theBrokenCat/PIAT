@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema 
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://www.piat.upm.es/libreria" 
+    xmlns:tns="http://www.piat.upm.es/libreria" 
+    elementFormDefault="qualified">
+    <xsd:element name="libreria">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="clientes" type="tns:tipoClientes"/>	
+                <xsd:element name="libros" type="tns:tipoLibros">
+                      <!--hacer único el valor del atributo idLibro -->
+                      <xsd:key name="idLibroKey">
+                        <xsd:selector xpath="./tns:libro"/>
+                        <xsd:field xpath="@idLibro"/>
+                      </xsd:key>
+
+                      <!--hacer único el valor del atributo ISBN -->
+                      <xsd:key name="ISBNKey">
+                        <xsd:selector xpath="./tns:libro"/>
+                        <xsd:field xpath="@ISBN"/>
+                      </xsd:key>
+                                          <!-- referencia a la clave clienteKey -->
+                      <xsd:keyref name="ISBNKeyRef" refer="tns:ISBNKey">
+                        <xsd:selector xpath="."/>
+                        <xsd:field xpath="tns:ISBNLibroMasVendido"/>
+                      </xsd:keyref>
+                </xsd:element>
+                <xsd:element name="compras" type="tns:tipoCompras">
+                    <!--hacer único el valor del atributo idCompra -->
+                    <xsd:key name="idCompraKey">
+                    <xsd:selector xpath="./tns:compra"/>
+                    <xsd:field xpath="@idCompra"/>
+                  </xsd:key>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+
+
+  <!--hacer único el valor del atributo idClientes -->
+    <xsd:key name="clienteKey">
+      <xsd:selector xpath="./tns:clientes/tns:cliente"/>
+      <xsd:field xpath="@idCliente"/>
+   </xsd:key>
+  
+  <!-- referencia a la clave clienteKey -->
+    <xsd:keyref name="clienteKeyRef" refer="tns:clienteKey">
+        <xsd:selector xpath="./tns:compras/tns:compra"/>
+        <xsd:field xpath="tns:clienteCompra"/>
+    </xsd:keyref>
+
+
+  <!--hacer único el valor del elemento titulo -->
+    <xsd:key name="tituloKey">
+        <xsd:selector xpath="./tns:libros/tns:libro"/>
+        <xsd:field xpath="tns:titulo"/>
+    </xsd:key>
+    
+  <!-- referencia a la clave clienteKey -->
+    <xsd:keyref name="tituloKeyRef" refer="tns:tituloKey">
+        <xsd:selector xpath="./tns:compras/tns:compra"/>
+        <xsd:field xpath="tns:libroCompra"/>
+    </xsd:keyref>
+  
+  </xsd:element>	
+  
+    
+    
+     <xsd:complexType name="tipoClientes">
+        <xsd:sequence>
+          <xsd:element name="cliente" maxOccurs="unbounded">
+             <xsd:complexType>
+               <xsd:sequence>
+                <xsd:element name="datos" type="xsd:string"/>
+               </xsd:sequence>
+               <xsd:attribute name="idCliente" type= "xsd:string" use="required"/>
+             </xsd:complexType>
+           </xsd:element>
+        </xsd:sequence> 
+     </xsd:complexType>
+     
+     <xsd:complexType name="tipoLibros">
+        <xsd:sequence>
+          <xsd:element name="libro" maxOccurs="unbounded">
+             <xsd:complexType>
+               <xsd:sequence>
+                <xsd:element name="titulo" type="xsd:string"/>
+               </xsd:sequence>
+               <xsd:attribute name="idLibro" type= "xsd:string" use="required"/>
+               <xsd:attribute name="ISBN" type= "xsd:string" use="optional"/>
+             </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="ISBNLibroMasVendido" type="xsd:string"/>
+       </xsd:sequence>
+    </xsd:complexType>
+     
+    <xsd:complexType name="tipoCompras">
+        <xsd:sequence>
+          <xsd:element name="compra" maxOccurs="unbounded">
+             <xsd:complexType>
+               <xsd:sequence>
+                <xsd:element name="libroCompra" type="xsd:string"/>
+                <xsd:element name="clienteCompra" type="xsd:string"/>
+               </xsd:sequence>
+               <xsd:attribute name="idCompra" type="xsd:string" use="required"/>
+             </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence> 
+    </xsd:complexType>
+    
+</xsd:schema>

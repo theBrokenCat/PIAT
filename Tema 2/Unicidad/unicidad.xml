@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:libreria 
+    xmlns:tns="http://www.piat.upm.es/libreria"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.piat.upm.es/libreria ./unicidad.xsd">
+    
+    <tns:clientes>
+        <tns:cliente idCliente="cliente025">   <!--Unicidad del atributo idCliente-->
+          <tns:datos>datos cliente 025</tns:datos>
+        </tns:cliente>
+        <tns:cliente idCliente="cliente100">   <!--Unicidad del atributo idCliente-->
+          <tns:datos>datos cliente 154</tns:datos>
+        </tns:cliente>
+    </tns:clientes>
+      
+    <tns:libros>
+        <tns:libro ISBN="1234123412" idLibro="libro001"> <!--Unicidad de los atributos idLibro e ISBN-->
+          <tns:titulo>Juego de tronos</tns:titulo>       <!--Unicidad elemento tns:titulo--> 
+        </tns:libro>
+        <tns:libro ISBN="123412222" idLibro="libro002">  <!--Unicidad de los atributos idLibro e ISBN-->
+          <tns:titulo>Choque de reyes</tns:titulo>      <!--Unicidad elemento tns:titulo--> 
+        </tns:libro>
+        <tns:ISBNLibroMasVendido>1234123412</tns:ISBNLibroMasVendido> <!--integridad referencial a atributo ISBN-->
+    </tns:libros>
+
+    <tns:compras>
+        <tns:compra idCompra="compra001">
+          <tns:libroCompra>Choque de reyes</tns:libroCompra> <!--integridad referencial a elemento tns:titulo-->
+          <tns:clienteCompra>cliente025</tns:clienteCompra>  <!--integridad referencial a atributo idCliente-->
+        </tns:compra>
+        <tns:compra idCompra="compra002">
+          <tns:libroCompra>Juego de tronos</tns:libroCompra> <!--integridad referencial a elemento tns:titulo-->
+          <tns:clienteCompra>cliente100</tns:clienteCompra>  <!--integridad referencial a atributo idCliente-->
+        </tns:compra>
+    </tns:compras>
+</tns:libreria>
+    

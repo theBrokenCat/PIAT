@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema 
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+		targetNamespace="http://www.piat.upm.es/portadaXSD" 
+		xmlns:tns="http://www.piat.upm.es/portadaXSD" 
+		elementFormDefault="qualified">		
+
+<xsd:element name="portada">
+    <xsd:complexType>
+        <xsd:sequence>
+            <xsd:element name="tituloPeriodico" type="tns:tipoTituloPeriodico"/>
+            <xsd:element name="noticiasPortada" type="tns:tipoNoticiasPortada"/>
+            <xsd:element name="noticiasDestacadas" type="tns:tipoNoticiasDestacadas"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:element>
+
+<xsd:complexType name="tipoTituloPeriodico">
+    <xsd:sequence>
+        <xsd:element name="nombre" type="xsd:string"/>
+        <xsd:element name="url" type="xsd:anyURI"/>
+        <xsd:element name="subtitulo" type="xsd:string"/>
+        <xsd:element name="lineaDivisoria">
+            <xsd:complexType></xsd:complexType>
+        </xsd:element>
+        <xsd:element name="datos" type="tns:tipoDatos"/>
+    </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="tipoDatos">
+    <xsd:sequence>
+        <xsd:element name="fecha" type="xsd:date"/>
+        <xsd:element name="annio" type="xsd:string"/>
+        <xsd:element name="numero" type="xsd:int" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="edicion" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="precio" type="xsd:float" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="tipoNoticiasPortada">
+    <xsd:sequence>
+        <xsd:element name="noticiaPortada" minOccurs="1" maxOccurs="unbounded">
+            <xsd:complexType>
+                <xsd:sequence minOccurs="1" maxOccurs="unbounded">
+                    <xsd:element name="contenidoInterior" type="tns:tipoContenidoInterior" minOccurs="0" maxOccurs="unbounded"/>
+                    <xsd:element name="supertitularNoticia" type="xsd:string" minOccurs="0" maxOccurs="unbounded" />
+                    <xsd:element name="subtPag" type="tns:tipoSubtPag" minOccurs="0" maxOccurs="unbounded"/>
+                    <xsd:element name="foto" type="tns:tipoFoto" minOccurs="0" maxOccurs="unbounded"/>
+                    <xsd:element name="titularNoticia" type="tns:tipoTitular" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element name="subtitularNoticia" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element name="autor" type="xsd:string" minOccurs="0" maxOccurs="3"/>
+                    <xsd:element name="lugar" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+                    <xsd:element name="texto" minOccurs="0" maxOccurs="1" >
+                        <xsd:complexType mixed="true">
+                            <xsd:choice minOccurs="0" maxOccurs="unbounded">
+                                <xsd:element name="negritaNot" type="xsd:string"/>
+                                <xsd:element name="subNot" type="xsd:string"/>
+                            </xsd:choice>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="pagina" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                </xsd:sequence>
+                <xsd:attribute name="id" type="xsd:ID"/>
+                <xsd:attribute name="tipo" type="tns:tipoNotiOpubli" default="noticia"/>
+                <xsd:attribute name="coorInicio" type="tns:tipoDosCoordenadas"/>
+                <xsd:attribute name="coorFinal" type="tns:tipoDosCoordenadas"/>
+            </xsd:complexType>
+        </xsd:element>
+    </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="tipoNoticiasDestacadas">
+    <xsd:sequence>
+        <xsd:element name="noticiaDestacada" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+                <xsd:sequence>
+ 					<xsd:element name="seccion" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+                    <xsd:element name="supertitularNoticia" type="xsd:string" minOccurs="0" maxOccurs="unbounded" />					
+                    <xsd:element name="titularNoticia" type="tns:tipoTitular" minOccurs="0" maxOccurs="unbounded" />
+                    <xsd:element name="subtitularNoticia" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+                    <xsd:element name="autor" type="xsd:string" minOccurs="0" maxOccurs="unbounded" />
+                    <xsd:element name="lugar" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+                    <xsd:element name="texto" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+                    <xsd:element name="paginas" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+                    <xsd:element name="foto" type="tns:tipoFoto" minOccurs="0" maxOccurs="unbounded"/>
+                </xsd:sequence>
+                <xsd:attribute name="posicionFoto" use="optional">
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                            <xsd:enumeration value="arriba"/>
+                            <xsd:enumeration value="abajo"/>
+                            <xsd:enumeration value="total"/>
+                            <xsd:enumeration value="ninguna"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:attribute>
+            </xsd:complexType>
+        </xsd:element>
+    </xsd:sequence>
+</xsd:complexType>
+
+<xsd:group name="grupoNoticia">
+    <xsd:all>
+		<xsd:element name="foto" type="tns:tipoFoto" minOccurs="0"/>
+ 		<xsd:element name="seccion" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="titular" type="tns:tipoTitular" minOccurs="0"/>
+        <xsd:element name="autor" type="xsd:string" minOccurs="0"/>	
+        <xsd:element name="paginas" type="xsd:string" minOccurs="0"/>
+    </xsd:all>
+</xsd:group>
+
+<xsd:complexType name="tipoContenidoInterior">
+		<xsd:group ref="tns:grupoNoticia"/>
+</xsd:complexType>
+
+<xsd:complexType name="tipoFoto">
+     <xsd:sequence>
+         <xsd:element name="URLFoto" type="xsd:anyURI"/>
+         <xsd:element name="pieDeFoto" type="tns:tipoPieFoto" minOccurs="0" maxOccurs="unbounded"/>
+     </xsd:sequence>
+     <xsd:attribute name="coorInicioFoto" type="tns:tipoDosCoordenadas"/>
+     <xsd:attribute name="coorFinalFoto" type="tns:tipoDosCoordenadas"/>             
+</xsd:complexType>
+
+<xsd:simpleType name="tipoCoordenadas">
+    <xsd:list itemType="xsd:integer"/>
+</xsd:simpleType>
+
+<xsd:simpleType name="tipoDosCoordenadas">
+    <xsd:restriction base="tns:tipoCoordenadas">
+	    <xsd:length value="2"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="tipoNotiOpubli">
+    <xsd:restriction base="xsd:token">
+	<xsd:enumeration value = "noticia"/>
+	<xsd:enumeration value = "publicidad"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="tipoTitular" mixed="true">
+    <xsd:choice minOccurs="0" maxOccurs="unbounded">
+    	<xsd:element name="negrita" type="xsd:string"/>
+    	<xsd:element name="especialND" type="xsd:string"/>
+    </xsd:choice>
+</xsd:complexType>
+
+<xsd:complexType name="tipoPieFoto">
+	<xsd:sequence>
+		<xsd:element name="titularPieDeFoto" type="xsd:string"  minOccurs="0" maxOccurs="unbounded" />
+		<xsd:element name="textoPieDeFoto" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="tipoSubtPag">
+    <xsd:sequence>
+        <xsd:element name="subtitular" type="xsd:string"/>
+        <xsd:element name="paginas" type="xsd:string"/>
+    </xsd:sequence>
+
+</xsd:complexType>
+
+</xsd:schema>

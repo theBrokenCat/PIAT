@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:portada 
+        xmlns:tns="http://www.piat.upm.es/portadaXSD"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.piat.upm.es/portadaXSD ./XMLSchemaPortada.xsd">
+
+  <tns:tituloPeriodico>
+        <tns:nombre>
+             EL PA�S
+        </tns:nombre>
+        <tns:url>
+            www.elpais.com
+        </tns:url>
+        <tns:subtitulo>
+           EL PERIODICO GLOBAL
+        </tns:subtitulo>
+        <tns:lineaDivisoria/>
+        <tns:datos>
+            <tns:fecha>2022-01-01</tns:fecha>
+            <tns:annio>XLVII</tns:annio>
+            <tns:numero>16257 </tns:numero>
+            <tns:edicion>MADRID</tns:edicion>
+            <tns:precio>3.00 </tns:precio>
+        </tns:datos>
+  </tns:tituloPeriodico>
+  
+  <tns:noticiasPortada>
+        <tns:noticiaPortada> 
+        	<tns:contenidoInterior>
+        		<tns:foto coorInicioFoto="2 2" coorFinalFoto="ximci2 yimci2" tipoFoto="gif"> 
+              		<URLFoto>http://...</URLFoto>
+        		</tns:foto>
+        		<tns:seccion> INTERNACIONAL</tns:seccion>
+        		<tns:titular> Boris Johnson ... </tns:titular>
+        		<tns:paginas>P6</tns:paginas>
+        	</tns:contenidoInterior>
+        	<contenidoInterior>
+        		<seccion> EL PA�S SEMANAL</seccion>
+        		<titular> La nueva revoluci�n ...</titular>
+                <foto coorInicioFoto="ximci3 yimci3" coorFinalFoto="ximci4 yimci4" tipoFoto="gif"> 
+                    <URLFoto>http://...</URLFoto>
+                </foto>
+        	</contenidoInterior>
+         </tns:noticiaPortada>       
+        <noticiaPortada id= "2" tipo="noticia" coorInicio="x3 y3" coorFinal="x4 y4">
+        	<supertitularNoticia> Alta tensi�n entre ...</supertitularNoticia>
+            <titularNoticia>&quot;Tengo ya ...&quot;</titularNoticia>
+            <subtitularNoticia>Los ucranios viven ...</subtitularNoticia>
+            <autor>MARIA SAHUQUILLO </autor>
+            <lugar>Kiev</lugar>
+			<texto>Mariya Yutsenko, ingeniera inform�tica ...</texto> 
+			<paginas> Paginas 2 y 3</paginas>       
+        </noticiaPortada>
+        <noticiaPortada id= "3" tipo="noticia" coorInicio="x5 y5" coorFinal="x6 y6">
+        	<subtPag>
+                <subtitular> Radiograf�a del gran ... </subtitular>
+                <paginas> P4 y 5</paginas>
+            </subtPag>
+            <subtPag>
+                <subtitular> Londres sostiene que ... </subtitular>
+                <paginas> P2</paginas>
+            </subtPag>
+            <subtPag>
+                <subtitular> Espa�a enviar� en febrero ...  </subtitular>
+                <paginas> P18 </paginas>
+            </subtPag>
+             <foto coorInicioFoto="ximnp1 yimnp1" coorFinalFoto="ximnp2 yimnp2" tipoFoto="gif">
+              	<URLFoto>http://...</URLFoto>
+              	<pieDeFoto> Voluntarios civiles ...</pieDeFoto>
+            </foto>
+        </noticiaPortada> 
+        <noticiaPortada id= "4" tipo="noticia" coorInicio="x7 y7" coorFinal="x8 y8">
+            <titularNoticia>Bruselas cambia el protocolo ...</titularNoticia>
+            <subtitular> El Consejo renuniar� ...</subtitular>
+            <autor>BERNARDO DE MIGUEL</autor>
+            <lugar>Bruselas</lugar>
+            <texto> La gesti�n de la pandemia ... </texto>
+			<pagina> 24 </pagina> 
+            <subtPag>
+                <subtitular> Nueva normalidad en Espa�a ... </subtitular>
+                <paginas> P25</paginas>
+            </subtPag>        
+        </noticiaPortada>     
+
+        <noticiaPortada id= "5" tipo="noticia" coorInicio="x9 y9" coorFinal="x10 y10">
+			<supertitular> EL PA�S narra ...</supertitular>
+            <titularNoticia>Alerta por riesgo de ...</titularNoticia>
+            <autor>BERTA FERRERO</autor>
+            <lugar>Madrid</lugar>
+			<texto> Cuando el alumno ...</texto> 
+			<paginas> Paginas 26 y 27</paginas>       
+        </noticiaPortada>  
+
+  </tns:noticiasPortada>
+  
+  <noticiasDestacadas>
+        <noticiaDestacada id="1">      
+ 			<titularNoticia>Un nuevo frente para ...</titularNoticia>
+            <autor>�LVARO S�NCHEZ</autor>
+            <lugar>Madrid</lugar>
+			<texto>Carlos San Juan, un ...</texto> 
+			<paginas> 
+                P�gina 44 y 45
+                Editorial en la P�gina 14    
+            </paginas>   
+        </noticiaDestacada>
+	    <noticiaDestacada id="2">
+            <supertitularNoticia>
+                JOAN SUBIRATS 
+                Ministro de Universidades
+            </supertitularNoticia>
+            <titularNoticia>&quot;Los chiringuitos no ...&quot;</titularNoticia>
+            <autor>E. SILI�</autor>
+            <autor>C. E. CU�</autor>
+            <lugar>Madrid</lugar>
+			<texto>Joan Subirats es el nuevo ...</texto> 
+			<paginas> 30 </paginas>           	
+       </noticiaDestacada>
+  </noticiasDestacadas>
+    
+</tns:portada>

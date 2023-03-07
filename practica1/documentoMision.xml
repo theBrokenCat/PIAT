@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<documentoMision>
+    <metadatos>
+        <identificacion version="j2l5">
+        </identificacion>
+        <!-- propietario aparecerá entre uno y un número ideterminado de veces-->
+        <propietario identificadorFiscal="12345678A">
+            <nombrePR></nombrePR>
+            <contacto>
+                <!-- email o url pueden aparecer cualquier número de veces pero al menos
+                uno debe aparecer-->
+                <email></email>
+                <url></url>
+            </contacto>
+        </propietario>
+    </metadatos>
+    <!-- datosMision aparecerá entre uno y un número ideterminado de veces-->
+    <datosMision idDM="">
+        <!-- puede haber algunas palabras dentro de elementos de nombre "negrita"
+        otras en elementos negrita y cursiva-->
+        <descripcionDM></descripcionDM>
+        <formatoDatos>
+            XML, JSON, XSLX o CSV
+        </formatoDatos>
+        <lenguaje>W3C<!-- siempre--></lenguaje>
+        <fecha>yyyy-mm-dd <!-- en el que se creó el elemento datosMision--></fecha>
+        <datosSensores></datosSensores>
+        <datosActuadores></datosActuadores>
+        <imagenes>
+            <!-- secuencia de entre 0 y número ideterminado de imágenes-->
+            <imagen idImagen="IMAG12">
+            </imagen>
+            <datosImagen>
+                <dimensiones>
+                    <ancho></ancho>
+                    <alto></alto>
+                </dimensiones>
+                <descripcion></descripcion>
+                <!-- formato podrá ser GIF, JPEG o PNG-->
+                <contenido formato=""></contenido>
+            </datosImagen>
+        </imagenes>
+    </datosMision>
+</documentoMision>

@@ -1,0 +1,16 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  targetNamespace="http://ejemplo.com/esquema/misionSchema" xmlns:tns="http://ejemplo.com/esquema/misionSchema">
+  <xsd:import namespace="http://www.piat.upm.es/identificacionSchema" schemaLocation="./identificacionSchema.xsd"/>
+  <xsd:import namespace="http://www.piat.upm.es/dronSchema" schemaLocation="./dronSchema.xsd"/>
+  <xsd:import namespace="http://www.piat.upm.es/tareaSchema" schemaLocation="./tareaSchema.xsd"/>
+    
+  <xsd:element name="mision">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="ads"/>
+        <xsd:element name="dron"/>
+        <xsd:element name="tarea"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

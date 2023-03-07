@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<generalMision>
+    <mision codigoMision="A123sd"></mision>
+    <!-- documentoMision puede aparecer entre 1 y un número ideterminado de veces-->
+    <!-- propietario tiene el mismo formato que el atributo identificadorFiscal
+    perteneciente al elemento propietario, hijo del elemento metadatos,
+    hijo del elemento documentoacionMision-->
+    <documentoMision numeroOrden="" propietario="">
+        <!-- mismo formato que el del elemento identificacion, hijo del 
+        elemento metadatos, hijo del elementodocumentoMision-->
+        <identificacion version="j2l5">
+        </identificacion>
+    </documentoMision>
+</generalMision>
