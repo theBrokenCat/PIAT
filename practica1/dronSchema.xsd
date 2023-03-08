@@ -1,6 +1,47 @@
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.piat.upm.es/dronSchema" 
-    xmlns:tns="http://ejemplo.com/esquema/misionSchema">
-
+    xmlns:tns="http://ejemplo.com/esquema/dronSchema">
     <xsd:import namespace="http://www.piat.upm.es/sensoresSchema" schemaLocation="./sensoresSchema.xsd"/>
     <xsd:import namespace="http://www.piat.upm.es/actuadoresSchema" schemaLocation="./actuadoresSchema.xsd"/>
+
+    <xsd:element name="drones"></xsd:element>
+
+    <xsd:complexType name="dron"></xsd:complexType>
+
+
+    <xsd:complexType name="claseDronType">
+        <xsd:sequence>
+            <xsd:element name="modo">   <!-- no pongo aquí el type=string porque ya lo estoy metiendo
+                                            en la restriccion -->
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                        <xsd:enumeration value="autónomo"/>
+                        <xsd:enumeration value="controlado"/>
+                        <xsd:enumeration value="monitorizado"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="numMotores" type="xsd:positiveInteger"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="homologacionesType">
+        <xsd:sequence>
+            <xsd:element name="nacional" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="internacional" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="configuracionDronType">
+        <xsd:sequence>
+
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="sensoresType">
+        <xsd:sequence>
+            <xsd:element name="numeroSensores" type="xsd:positiveInteger" minOccurs="1"/>
+            
+        </xsd:sequence>
+    </xsd:complexType>
+
 </xsd:schema>
