@@ -32,16 +32,12 @@
     </xsd:complexType>
     
     <xsd:complexType name="configuracionDronType">
+        
         <xsd:sequence>
 
         </xsd:sequence>
     </xsd:complexType>
 
-    <xsd:complexType name="sensoresType">
-        <xsd:sequence>
-            <xsd:element name="numeroSensores" type="xsd:positiveInteger" minOccurs="1"/>
-            
-        </xsd:sequence>
-    </xsd:complexType>
+    
 
 </xsd:schema>
