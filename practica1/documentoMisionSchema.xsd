@@ -6,5 +6,6 @@
     <xsd:import namespace="http://www.piat.upm.es/imagenSchema" schemaLocation="./imagenSchema.xsd"/>
 
 
+    
 
 </xsd:schema>
