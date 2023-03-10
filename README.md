@@ -1,2 +1,2 @@
 # PIAT
-Laboratorio de PROCESADO DIGITAL DE LA SEÑAL. Curso 21/22
+Laboratorio de PROCESADO DIGITAL DE LA SEÑAL. Curso 22/23
