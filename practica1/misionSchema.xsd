@@ -1,12 +1,37 @@
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
             targetNamespace="http://ejemplo.com/esquema/misionSchema" 
-            xmlns:tns="http://ejemplo.com/esquema/misionSchema">
+            xmlns:tns="http://ejemplo.com/esquema/misionSchema"
+            xmlns:ide="http://www.piat.upm.es/identificacionSchema"
+            xmlns:dro="http://www.piat.upm.es/dronSchema"
+            xmlns:tar="http://www.piat.upm.es/tareaSchema">
 
   <xsd:import namespace="http://www.piat.upm.es/identificacionSchema" schemaLocation="./identificacionSchema.xsd"/>
   <xsd:import namespace="http://www.piat.upm.es/dronSchema" schemaLocation="./dronSchema.xsd"/>
   <xsd:import namespace="http://www.piat.upm.es/tareaSchema" schemaLocation="./tareaSchema.xsd"/>
     
   
-  
+  <xsd:element name="mision">
+    <xsd:complexType>
+      <xsd:sequence minOccurs="1" maxOccurs="1">
+        <xsd:element name="identificacion" type="ide:identificacionType"/>
+        <xsd:element name="drones">
+          <xsd:complexType>
+            <xsd:sequence minOccurs="1">
+              <xsd:element name="dron" type="dro:dronType"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="tareas">
+          <xsd:complexType>
+            <xsd:sequence minOccurs="1">
+              <xsd:element name="tarea" type="tar:tareaType"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+
+
 
 </xsd:schema>
