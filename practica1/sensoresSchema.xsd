@@ -1,29 +1,50 @@
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.piat.upm.es/datosSchema" 
-    xmlns:tns="http://www.piat.upm.es/datosSchema">
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+            targetNamespace="http://www.piat.upm.es/sensoresSchema" 
+            xmlns:tns="http://www.piat.upm.es/sensoresSchema" 
+            elementFormDefault="qualified">
 
 
-
-    <xsd:element name="sensoresType">
-        <xsd:complexType>
-            <xsd:sequence>
-                <xsd:element name="numeroSensores" type="xsd:positiveInteger" minOccurs="1"/>
-                <xsd:sequence minOccurs="1">
-                    <xsd:element name="sensor" type="tns:sensorType"/>
-                </xsd:sequence>
-            </xsd:sequence>
-        </xsd:complexType>
+    <!-- elemento simplificado porque usaré su Type en el dronSchema-->
+    <xsd:element name="sensores" type="tns:sensoresType">
     </xsd:element>
+
+    <xsd:complexType name="sensoresType">
+        <xsd:sequence>
+            <xsd:element name="numeroSensores" type="xsd:positiveInteger" minOccurs="1"/>
+            <xsd:sequence >
+                <xsd:element name="sensor" type="tns:sensorType" minOccurs="1" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:sequence>
+    </xsd:complexType>
 
 
     <xsd:complexType name="sensorType">
         <xsd:sequence>
-
+            <xsd:element name="elementoSensado" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="rango" type="tns:rangoType"/>
         </xsd:sequence>
+        <xsd:attribute name="idSensor" type="tns:idSensorType" use="required"/>
     </xsd:complexType>
 
-    <xsd:simpleType name="elementoSensadoType">
+    <!-- los siguientes tipos los usaremos para definir el tipo de rango -->
+    <xsd:simpleType name="tRango">
+        <xsd:union memberTypes= "xsd:double xsd:integer"/>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="rangoTypeLista">
+        <xsd:list itemType="tns:tRango"/>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="rangoType">
+        <xsd:restriction base="tns:rangoTypeLista">
+            <xsd:length value="3"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <!-- el siguiente tipo lo usaremos para definir el tipo del atributo idSensor -->
+    <xsd:simpleType name="idSensorType">
         <xsd:restriction base="xsd:string">
-            
+            <xsd:pattern value="[A-Z]{3}[0-9]-[a-z]{2}"/> <!-- mirar si es con el guion o sin el guion-->
         </xsd:restriction>
     </xsd:simpleType>
 
