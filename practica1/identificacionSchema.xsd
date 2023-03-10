@@ -2,14 +2,14 @@
            targetNamespace="http://www.piat.upm.es/identificacionSchema"
            xmlns:tns="http://www.piat.upm.es/identificacionSchema">
 
-            <xsd:element name="identificacion">
-                <xsd:complexType>
-                    <xsd:sequence>  <!-- mínimo 1 hay, por lo que es obligatorio-->
-                        <xsd:element name="descripcion" type="tns:descripcionType"/>
-                    </xsd:sequence>
-                    <xsd:attribute name="codigoMision" type="tns:codigoMisionType" use="required"/>
-                </xsd:complexType>
-            </xsd:element>
+            <xsd:element name="identificacion" type="tns:identificacionType"/>
+
+            <xsd:complexType name="identificacionType">
+                <xsd:sequence>  <!-- mínimo 1 hay, por lo que es obligatorio-->
+                    <xsd:element name="descripcion" type="tns:descripcionType"/>
+                </xsd:sequence>
+                <xsd:attribute name="codigoMision" type="tns:codigoMisionType" use="required"/>
+            </xsd:complexType>
 
             <xsd:simpleType name="codigoMisionType">
                 <xsd:restriction base="xsd:string">
