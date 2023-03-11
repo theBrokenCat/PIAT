@@ -1,11 +1,103 @@
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
             targetNamespace="http://www.piat.upm.es/documentoMisionSchema" 
-            xmlns:tns="http://www.piat.upm.es/documentoMisionSchema">
+            xmlns:tns="http://www.piat.upm.es/documentoMisionSchema"
+            xmlns:ide="http://www.piat.upm.es/identificacionSchema"
+            xmlns:pro="http://www.piat.upm.es/propietarioSchema"
+            xmlns:ima="http://www.piat.upm.es/imagenSchema">
 
     <xsd:import namespace="http://www.piat.upm.es/propietarioSchema" schemaLocation="./propietarioSchema.xsd"/>
+    <xsd:import namespace="http://www.piat.upm.es/identificacionSchema" schemaLocation="./identificacionSchema.xsd"/>
     <xsd:import namespace="http://www.piat.upm.es/imagenSchema" schemaLocation="./imagenSchema.xsd"/>
 
+    <xsd:element name="documentoMision" type="tns:documentoMisionType"/>
 
-    <xsd:element name="documentoMision"></xsd:element>
+    <xsd:complexType name="documentoMisionType">
+        <xsd:sequence minOccurs="1" maxOccurs="unbounded">
+            <xsd:element name="metadatos" type="tns:metadatosType" maxOccurs="1"/>
+            <xsd:element name="datosMision" type="tns:datosMisionType" minOccurs="1" maxOccurs="unbounded">
+                <xsd:unique name="idDMUnique">
+                    <xsd:selector xpath="."/>
+                    <xsd:field xpath="@idDM"></xsd:field>
+                </xsd:unique>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+
+    <!-- **************************************************** -->
+    <!-- metadatos-->
+    <xsd:complexType name="metadatosType">
+        <xsd:sequence>
+            <xsd:element name="identificacion" type="tns:identificacionType"/>
+            <xsd:element name="propietario" type="pro:propietarioType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <!-- metadatos-->
+    
+    <!-- identificacion-->
+    <xsd:complexType name="identificacionType">
+        <xsd:complexContent>
+            <xsd:extension base="ide:identificacionType">
+                <xsd:attribute name="version" type="tns:versionType" use="required"/>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:simpleType name="versionType">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[a-zA-Z0-9]{4}"></xsd:pattern>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <!-- identificacion-->
+    <!-- **************************************************** -->
+
+    
+    <!-- **************************************************** -->
+    <!-- datosMision-->
+    <xsd:complexType name="datosMisionType">
+        <xsd:sequence>
+            <xsd:element name="descripcionDM" type="tns:descripcionDMType" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="formatoDatos" type="tns:formatoDatosType" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="lenguaje" type="tns:lenguajeType" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="fecha" type="tns:fechaType" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="datosSensores" type="tns:datosSensoresType" minOccurs="1"/>
+            <xsd:element name="datosActuadores" type="tns:datosActuadoresType" minOccurs="0"/>
+            <xsd:element name="imagenes" type="ima:imagenType" minOccurs="0"/>
+        </xsd:sequence>
+        <xsd:attribute name="idDM" use="required"/>
+    </xsd:complexType>
+    <!-- datosMision-->
+
+    <xsd:simpleType name="descripcionDMType">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="(\w| )+((&lt;b&gt;\w+&lt;/b&gt;|&lt;i&gt;\w+&lt;/i&gt;|&lt;b&gt;&lt;i&gt;\w+&lt;/i&gt;&lt;/b&gt;)(\w| )+)*"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="formatoDatosType">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="XML"/>
+            <xsd:enumeration value="JSON"/>
+            <xsd:enumeration value="CSV"/>
+            <xsd:enumeration value="XSLX"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="lenguajeType">
+        <xsd:restriction base="xsd:language"/>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="fechaType">
+        <xsd:restriction base="xsd:date"/>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="datosSensoresType">
+        <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="datosActuadoresType">
+        <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+    <!-- **************************************************** -->
 
 </xsd:schema>
