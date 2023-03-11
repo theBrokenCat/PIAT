@@ -1,4 +1,63 @@
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.piat.upm.es/datosSchema" 
-    xmlns:tns="http://www.piat.upm.es/datosSchema">
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.piat.upm.es/imagenSchema" 
+    xmlns:tns="http://www.piat.upm.es/imagenSchema">
+
+    <xsd:notation name="gif" public="image/gif"/>
+    <xsd:notation name="jpeg" public="image/jpeg"/>
+    <xsd:notation name="png" public="image/png"/>
+    
+    <xsd:element name="imagen" type="tns:imagenType">
+        <xsd:key name="idImagenKey">
+            <xsd:selector xpath="."/>
+            <xsd:field xpath="@idImagen"/>
+        </xsd:key>
+
+        
+    </xsd:element>
+
+    <xsd:complexType name="imagenType">
+        <xsd:sequence>
+            <xsd:element name="datosImagen" type="tns:datosImagenType"/>
+        </xsd:sequence>
+        <xsd:attribute name="idImagen" type="tns:idImagenType" use="required"/>
+    </xsd:complexType>
+
+    <xsd:simpleType name="idImagenType">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="IMAG[0-9]{2}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:complexType name="datosImagenType">
+        <xsd:sequence>
+            <xsd:element name="dimensiones" type="tns:dimensionesType" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="descripcion" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="contenido" type="tns:contenidoType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="dimensionesType">
+        <xsd:sequence minOccurs="1">
+            <xsd:element name="ancho" type="xsd:int"/>
+            <xsd:element name="alto" type="xsd:int"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+
+
+    <xsd:complexType name="contenidoType">
+      <xsd:simpleContent>
+        <xsd:extension base="xsd:base64Binary">
+          <xsd:attribute name="formato" type="tns:tipoFormato"/>
+        </xsd:extension>
+      </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:simpleType name="tipoFormato">
+        <xsd:restriction base="xsd:NOTATION">
+            <xsd:enumeration value="tns:gif"/>
+            <xsd:enumeration value="tns:jpeg"/>
+            <xsd:enumeration value="tns:png"/>
+        </xsd:restriction>
+    </xsd:simpleType>
 
 </xsd:schema>
