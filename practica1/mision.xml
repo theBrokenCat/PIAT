@@ -15,7 +15,7 @@
     </tns:identificacion>
     
     <tns:drones>
-        <tns:dron>
+        <tns:dron matriculaDron="dfafs">
             <dro:claseDron>
                 controlado 9
             </dro:claseDron>
