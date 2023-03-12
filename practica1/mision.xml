@@ -1,96 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<tns:mision xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns:ide="http://www.piat.upm.es/identificacionSchema"
+            xmlns:dro="http://www.piat.upm.es/dronSchema"
+            xmlns:sen="http://www.piat.upm.es/sensoresSchema"
+            xmlns:act="http://www.piat.upm.es/actuadoresSchema"
+            xmlns:tar="http://www.piat.upm.es/tareaSchema"
 
-<tns:mision xmlns:tns="http://ejemplo.com/esquema/misionSchema"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:schemaLocation="http://ejemplo.com/esquema/misionSchema ./misionSchema.xsd">
-    <identificacion codigoMision="A123sd">
-
-        <descripcion>
-            <keyword>reparar</keyword>
-            <keyword>conexión</keyword>
-            <keyword>una torre de media tensión</keyword>
-        </descripcion>
-
-        <tns:drones>
-            <!-- Va a haber varios drones-->
-            <dron>
-                <claseDron>
-                    (autónomo, controlado, monitorizado) (numMotores)
-                </claseDron>
-                <homologaciones>
-                    <nacional></nacional>
-                    <internacional></internacional>
-                </homologaciones>
-                <configuracionesDron>
-                    <sensores>
-                        <numeroSensores></numeroSensores>
-                        <sensor idSensor="SEN4-sm">
-                            <elementoSensado>
-                                <!-- contiene una especificación de qué elemento de la naturaleza marina
-                                detecta el sensor. Ej: Salinidad del agua-->
-                            </elementoSensado>
-                            <rango>
-                                <!-- lista de 3 números, mx y min % de error de las medidas-->
-                                1.5 15.5 4
-                            </rango>
-                        </sensor>
-                        <actuadores>
-                            <numeroActuadores>
-                                <!-- contiene el número de actuadores que tiene el dron-->
-                            </numeroActuadores>
-
-                            <!-- varios actuadores-->
-                            <actuador idActuador="AC$04">
-                            </actuador>
-                            <alcanceActuacion>
-                                <tipoActuacion>
-                                    <!-- cadena de caracteres que especifica la actuación-->
-                                </tipoActuacion>
-                                <fechasActuacion>
-                                    <!-- lista de dos fechas en formato yyyy-mm-dd
-                                    que especifican el inicion y fun de la validez de la actuación-->
-                                </fechasActuacion>
-                            </alcanceActuacion>
-                        </actuadores>
-                    </sensores>
-                </configuracionesDron>
-                <matriculaDron>
-                    <!-- palabra de 5 caracteres de longitud con el número
-                    de identificación-->
-                </matriculaDron>
-            </dron>
-        </tns:drones>
-        <tareas>
-            <!-- varias tareas-->
-            <tarea idTarea="TAR-10424">
-                <descripcionTarea>
-                    <!-- descripcion de la tarea-->
-                </descripcionTarea>
-                <responsableTarea>
-                    <email></email>
-                    <url></url>
-                </responsableTarea>
-                <dronesTarea>
-                    <!-- varios dronTarea-->
-                    <dronTarea>
-                        <!-- matriculaDron tiene que estar en alguno de los atributos matriculaDron del elemento dron-->
-                        <matricula matriculaDron=""></matricula>
-                        <actividadMision></actividadMision>
-                    </dronTarea>
-                </dronesTarea>
-                <areaGeografica>
-                    <centro>
-                        <longitud></longitud>
-                        <latitud></latitud>
-                    </centro>
-                    <profundidad></profundidad>
-                    <forma>
-                        (esfera, cilindro o paralelepípedo)
-                    </forma>
-                </areaGeografica>
-            </tarea>
-            crear varias tareas más con el mismo esquema
-        </tareas>
-    </identificacion>
+            xmlns:tns="http://www.piat.upm.es/misionSchema"
+            xsi:schemaLocation="http://www.piat.upm.es/misionSchema ./misionSchema.xsd">
+    <tns:identificacion codigoMision="M123ab">
+        <ide:descripcion>
+            asdffads d<ide:keyword>fdf</ide:keyword>fdsadfsadf dhkjal
+        </ide:descripcion>
+    </tns:identificacion>
     
+    <tns:drones>
+        <tns:dron>
+            <dro:claseDron>
+                controlado 9
+            </dro:claseDron>
+            <dro:homologacion>
+                <!-- <dro:nacional></dro:nacional> -->
+                <dro:internacional></dro:internacional>
+            </dro:homologacion>
+            <dro:configuracionDron>
+                <dro:sensores>
+                    <sen:numeroSensores>4</sen:numeroSensores>
+                    <sen:sensor idSensor="SEN4-sm">
+                        <sen:elementoSensado>salinidad del agua</sen:elementoSensado>
+                        <sen:rango>1 1 1</sen:rango>
+                    </sen:sensor>
+                </dro:sensores>
+                <dro:actuadores>
+                    <act:numeroActuadores>4</act:numeroActuadores>
+                    <act:actuador idActuador="AC$00">
+                        <act:alcanceActuacion>
+                            <act:tipoActuacion></act:tipoActuacion>
+                            <act:fechasActuacion>1990-05-20 2023-12-21</act:fechasActuacion>
+                        </act:alcanceActuacion>
+                    </act:actuador>
+                </dro:actuadores>
+            </dro:configuracionDron>
+        </tns:dron>
+    </tns:drones>
+    <tns:tareas>
+        <tns:tarea idTarea="TAR-00001">
+            <tar:descripcionTarea>dasdfsa</tar:descripcionTarea>
+            <tar:responsableTarea>
+                <tar:url></tar:url>
+                <tar:email></tar:email>
+            </tar:responsableTarea>
+            <tar:dronesTarea>
+                <tar:dronTarea>
+                    <tar:actividadMision>fasff</tar:actividadMision>
+                    <tar:matricula></tar:matricula>
+                </tar:dronTarea>
+            </tar:dronesTarea>
+            <tar:areaGeografica>
+                <tar:centro>
+                    <tar:longitud>4</tar:longitud>
+                    <tar:latitud>33</tar:latitud>
+                </tar:centro>
+                <tar:profundidad>2 3 1</tar:profundidad>
+                <tar:forma>esfera</tar:forma>
+            </tar:areaGeografica>
+        </tns:tarea>
+    </tns:tareas>
 </tns:mision>

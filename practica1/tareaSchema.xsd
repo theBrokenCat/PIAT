@@ -22,7 +22,7 @@
                     <xsd:field xpath="@idEmail"/>
                 </xsd:key>
             </xsd:element>
-            <xsd:element name="dronesTarea" type="tns:dronesTareaType"/>
+            <xsd:element name="dronesTarea" type="tns:dronesTareaType" minOccurs="1"/>
             <xsd:element name="areaGeografica" type="tns:areaGeograficaType"/>
         </xsd:sequence>
         <xsd:attribute name="idTarea" type="tns:atributeType" use="required"/>
@@ -45,15 +45,17 @@
     <!-- falta la parte de Matrícula-->
     <xsd:complexType name="dronTareaType">
         <xsd:sequence>
-
-            <xsd:element name="actividadMision" type="xsd:string"/>
+            <xsd:element name="actividadMision" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="matricula" minOccurs="1">
+                
+            </xsd:element>
         </xsd:sequence>
     </xsd:complexType>
 
     <xsd:complexType name="areaGeograficaType">
         <xsd:sequence>
             <xsd:element name="centro" type="tns:centroType" minOccurs="1" maxOccurs="1"/>
-            <xsd:element name="profundidad" type="tns:areaGeograficaType" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="profundidad" type="tns:profundidadType" minOccurs="1" maxOccurs="1"/>
             <xsd:element name="forma" type="tns:formaType" minOccurs="1" maxOccurs="1"/>
         </xsd:sequence>
     </xsd:complexType>
@@ -80,13 +82,13 @@
     <!-- profundidad-->
 
     <!-- forma-->
-    <xsd:complexType name="formaType">
-        <xsd:choice>
-            <xsd:element name="esfera" type="xsd:string"/>
-            <xsd:element name="cilindro" type="xsd:string"/>
-            <xsd:element name="paralelepipedo" type="xsd:string"/>
-        </xsd:choice>
-    </xsd:complexType>
+    <xsd:simpleType name="formaType">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="esfera"/>
+            <xsd:enumeration value="cilindro"/>
+            <xsd:enumeration value="paralelepípedo"/>
+        </xsd:restriction>
+  </xsd:simpleType>
     <!-- forma-->
 
     <!-- atributo-->
