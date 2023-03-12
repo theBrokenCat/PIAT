@@ -1,5 +1,7 @@
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.piat.upm.es/imagenSchema" 
-    xmlns:tns="http://www.piat.upm.es/imagenSchema">
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+            targetNamespace="http://www.piat.upm.es/imagenSchema" 
+            xmlns:tns="http://www.piat.upm.es/imagenSchema"
+            elementFormDefault="qualified">
 
     <xsd:notation name="gif" public="image/gif"/>
     <xsd:notation name="jpeg" public="image/jpeg"/>
@@ -10,8 +12,6 @@
             <xsd:selector xpath="."/>
             <xsd:field xpath="@idImagen"/>
         </xsd:key>
-
-        
     </xsd:element>
 
     <xsd:complexType name="imagenType">

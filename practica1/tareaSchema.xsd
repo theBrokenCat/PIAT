@@ -1,6 +1,7 @@
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
             targetNamespace="http://www.piat.upm.es/tareaSchema" 
-            xmlns:tns="http://www.piat.upm.es/tareaSchema">
+            xmlns:tns="http://www.piat.upm.es/tareaSchema"
+            elementFormDefault="qualified">
     
     <!-- DUDAS CON EL KEY-->
     <xsd:element name="tarea" type="tns:tareaType">

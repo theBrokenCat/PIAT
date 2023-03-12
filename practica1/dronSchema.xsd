@@ -3,7 +3,8 @@
             xmlns:tns="http://www.piat.upm.es/dronSchema"
 
             xmlns:act="http://www.piat.upm.es/actuadoresSchema"
-            xmlns:sen="http://www.piat.upm.es/sensoresSchema">
+            xmlns:sen="http://www.piat.upm.es/sensoresSchema"
+            elementFormDefault="qualified">
 
     <xsd:import namespace="http://www.piat.upm.es/sensoresSchema" schemaLocation="./sensoresSchema.xsd"/>
     <xsd:import namespace="http://www.piat.upm.es/actuadoresSchema" schemaLocation="./actuadoresSchema.xsd"/>

@@ -3,7 +3,8 @@
             xmlns:tns="http://www.piat.upm.es/documentoMisionSchema"
             xmlns:ide="http://www.piat.upm.es/identificacionSchema"
             xmlns:pro="http://www.piat.upm.es/propietarioSchema"
-            xmlns:ima="http://www.piat.upm.es/imagenSchema">
+            xmlns:ima="http://www.piat.upm.es/imagenSchema"
+            elementFormDefault="qualified">
 
     <xsd:import namespace="http://www.piat.upm.es/propietarioSchema" schemaLocation="./propietarioSchema.xsd"/>
     <xsd:import namespace="http://www.piat.upm.es/identificacionSchema" schemaLocation="./identificacionSchema.xsd"/>

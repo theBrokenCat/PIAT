@@ -1,7 +1,9 @@
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.piat.upm.es/generalSchema" 
-    xmlns:tns="http://www.piat.upm.es/generalSchema"
-    xmlns:mis="http://www.piat.upm.es/misionSchema"
-    xmlns:doc="http://www.piat.upm.es/documentoMisionSchema">
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+            targetNamespace="http://www.piat.upm.es/generalSchema" 
+            xmlns:tns="http://www.piat.upm.es/generalSchema"
+            xmlns:mis="http://www.piat.upm.es/misionSchema"
+            xmlns:doc="http://www.piat.upm.es/documentoMisionSchema"
+            elementFormDefault="qualified">
 
     <xsd:import namespace="http://www.piat.upm.es/misionSchema" schemaLocation="./misionSchema.xsd"/>
     <xsd:import namespace="http://www.piat.upm.es/documentoMisionSchema" schemaLocation="./documentoMisionSchema.xsd"/>

@@ -1,5 +1,7 @@
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.piat.upm.es/actuadoresSchema" 
-    xmlns:tns="http://www.piat.upm.es/actuadoresSchema">
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+            targetNamespace="http://www.piat.upm.es/actuadoresSchema" 
+            xmlns:tns="http://www.piat.upm.es/actuadoresSchema"
+            elementFormDefault="qualified">
 
     <!-- elemento simplificado porque usaremos su Type en dronSchema-->
     <xsd:element name="actuadores" type="tns:actuadoresType">

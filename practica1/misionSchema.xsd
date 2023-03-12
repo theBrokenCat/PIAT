@@ -3,7 +3,8 @@
             xmlns:tns="http://www.piat.upm.es/misionSchema"
             xmlns:ide="http://www.piat.upm.es/identificacionSchema"
             xmlns:dro="http://www.piat.upm.es/dronSchema"
-            xmlns:tar="http://www.piat.upm.es/tareaSchema">
+            xmlns:tar="http://www.piat.upm.es/tareaSchema"
+            elementFormDefault="qualified">
 
   <xsd:import namespace="http://www.piat.upm.es/identificacionSchema" schemaLocation="./identificacionSchema.xsd"/>
   <xsd:import namespace="http://www.piat.upm.es/dronSchema" schemaLocation="./dronSchema.xsd"/>

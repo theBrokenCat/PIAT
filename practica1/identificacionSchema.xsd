@@ -1,6 +1,7 @@
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
            targetNamespace="http://www.piat.upm.es/identificacionSchema"
-           xmlns:tns="http://www.piat.upm.es/identificacionSchema">
+           xmlns:tns="http://www.piat.upm.es/identificacionSchema"
+           elementFormDefault="qualified">
 
             <xsd:element name="identificacion" type="tns:identificacionType"/>
 
