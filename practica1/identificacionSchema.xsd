@@ -6,7 +6,7 @@
             <xsd:element name="identificacion" type="tns:identificacionType"/>
 
             <xsd:complexType name="identificacionType">
-                <xsd:sequence>  <!-- mínimo 1 hay, por lo que es obligatorio-->
+                <xsd:sequence minOccurs="1" maxOccurs="1">  <!-- mínimo 1 hay, por lo que es obligatorio-->
                     <xsd:element name="descripcion" type="tns:descripcionType"/>
                 </xsd:sequence>
                 <xsd:attribute name="codigoMision" type="tns:codigoMisionType" use="required"/>
@@ -19,12 +19,9 @@
             </xsd:simpleType>
 
             <xsd:complexType name="descripcionType" mixed="true">
-                <xsd:sequence minOccurs="1" maxOccurs="unbounded">
-                    <xsd:choice>
+                    <xsd:choice maxOccurs="unbounded">
                         <xsd:element name="keyword" type="tns:keywordType"/>
-                        <xsd:element name="text" type="xsd:string"/>
                     </xsd:choice>
-                </xsd:sequence>
             </xsd:complexType>
 
             <xsd:simpleType name="keywordType">
