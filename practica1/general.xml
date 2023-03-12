@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:generalMision xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns:ide="http://www.piat.upm.es/identificacionSchema"
+            xmlns:dro="http://www.piat.upm.es/dronSchema"
+            xmlns:sen="http://www.piat.upm.es/sensoresSchema"
+            xmlns:act="http://www.piat.upm.es/actuadoresSchema"
+            xmlns:tar="http://www.piat.upm.es/tareaSchema"
+            xmlns:mis="http://www.piat.upm.es/misionSchema"
+
+            xmlns:tns="http://www.piat.upm.es/generalSchema"
+            xsi:schemaLocation="http://www.piat.upm.es/generalSchema ./generalSchema.xsd">
+    <tns:mision>
+        <mis:identificacion codigoMision="M123ab">
+            <descripcion>
+                <keyword></keyword>
+            </descripcion>
+        </mis:identificacion>
+        <mis:drones>
+            <mis:dron matriculaDron="">
+                <dro:claseDron></dro:claseDron>
+                <dro:homologacion>
+                    <dro:nacional></dro:nacional>
+                    <!-- <dro:internacional></dro:internacional> -->
+                </dro:homologacion>
+                <dro:configuracionDron>
+                    <dro:sensores>
+                        <numeroSensores></numeroSensores>
+                        <sensor idSensor="">
+                            <elementoSensado></elementoSensado>
+                            <rango></rango>
+                        </sensor>
+                    </dro:sensores>
+                    <actuadores>
+                        <numeroActuadores></numeroActuadores>
+                        <actuador idActuador="">
+                            <alcanceActuacion>
+                                <tipoActuacion></tipoActuacion>
+                                <fechasActuacion></fechasActuacion>
+                            </alcanceActuacion>
+                        </actuador>
+                    </actuadores>
+                </dro:configuracionDron>
+            </mis:dron>
+        </mis:drones>
+        <tareas>
+            <tarea idTarea="">
+                <descripcionTarea></descripcionTarea>
+                <responsableTarea>
+                    <url></url>
+                    <email></email>
+                </responsableTarea>
+                <dronesTarea>
+                    <dronTarea>
+                        <actividadMision></actividadMision>
+                        <matricula>
+                            <documentoMision>
+                                <metadatos>
+                                    <identificacion version="" codigoMision="">
+                                    </identificacion>
+                                    <propietario identificadorFiscal="">
+                                        <nombrePR></nombrePR>
+                                        <contacto>
+                                            <email></email>
+                                            <url></url>
+                                        </contacto>
+                                    </propietario>
+                                </metadatos>
+                                <datosMision idDM="">
+                                    <descripcionDM></descripcionDM>
+                                    <formatoDatos>XML</formatoDatos>
+                                    <lenguaje></lenguaje>
+                                    <fecha></fecha>
+                                    <datosSensores></datosSensores>
+                                    <datosActuadores></datosActuadores>
+                                    <imagenes idImagen="">
+                                        <datosImagen>
+                                            <dimensiones>
+                                                <ancho></ancho>
+                                                <alto></alto>
+                                            </dimensiones>
+                                            <descripcion></descripcion>
+                                            <contenido></contenido>
+                                        </datosImagen>
+                                    </imagenes>
+                                </datosMision>
+                            </documentoMision>
+                            <mision>
+                            </mision>
+                            <imagen idImagen="">
+                            </imagen>
+                            <identificacion codigoMision="">
+                            </identificacion>
+                            <propietario identificadorFiscal="">
+                                <nombrePR></nombrePR>
+                            </propietario>
+                            <tarea idTarea="">
+                                <descripcionTarea></descripcionTarea>
+                                <areaGeografica>
+                                    <centro>
+                                        <longitud></longitud>
+                                        <latitud></latitud>
+                                    </centro>
+                                    <profundidad></profundidad>
+                                    <forma>esfera</forma>
+                                </areaGeografica>
+                            </tarea>
+                            <dron matriculaDron="">
+                                <claseDron></claseDron>
+                            </dron>
+                            <actuadores>
+                                <numeroActuadores></numeroActuadores>
+                            </actuadores>
+                            <sensores>
+                                <numeroSensores></numeroSensores>
+                            </sensores>
+                        </matricula>
+                    </dronTarea>
+                </dronesTarea>
+            </tarea>
+        </tareas>
+    </tns:mision>
+    <documentoMision>
+    </documentoMision>
+</tns:generalMision>

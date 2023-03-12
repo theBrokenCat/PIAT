@@ -18,6 +18,7 @@
             <xsd:element name="homologacion" type="tns:homologacionType" minOccurs="1" maxOccurs="1"/>
             <xsd:element name="configuracionDron" type="tns:configuracionDronType" minOccurs="1" maxOccurs="1"/>
         </xsd:sequence>
+        <xsd:attribute name="matriculaDron" type="tns:matriculaDronType" use="required"/>
     </xsd:complexType>
 
 <!--     
@@ -66,5 +67,11 @@
             <xsd:element name="actuadores" type="act:actuadoresType" minOccurs="0" maxOccurs="1"/>
         </xsd:sequence>
     </xsd:complexType>
+
+    <xsd:simpleType name="matriculaDronType">
+        <xsd:restriction base="xsd:string">
+            <xsd:length value="5"/>
+        </xsd:restriction>
+    </xsd:simpleType>
     
 </xsd:schema>

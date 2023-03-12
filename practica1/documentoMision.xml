@@ -1,44 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<documentoMision>
-    <metadatos>
-        <identificacion version="j2l5">
-        </identificacion>
-        <!-- propietario aparecerá entre uno y un número ideterminado de veces-->
-        <propietario identificadorFiscal="12345678A">
-            <nombrePR></nombrePR>
-            <contacto>
-                <!-- email o url pueden aparecer cualquier número de veces pero al menos
-                uno debe aparecer-->
-                <email></email>
-                <url></url>
-            </contacto>
-        </propietario>
-    </metadatos>
-    <!-- datosMision aparecerá entre uno y un número ideterminado de veces-->
-    <datosMision idDM="">
-        <!-- puede haber algunas palabras dentro de elementos de nombre "negrita"
-        otras en elementos negrita y cursiva-->
-        <descripcionDM></descripcionDM>
-        <formatoDatos>
-            XML, JSON, XSLX o CSV
-        </formatoDatos>
-        <lenguaje>W3C<!-- siempre--></lenguaje>
-        <fecha>yyyy-mm-dd <!-- en el que se creó el elemento datosMision--></fecha>
-        <datosSensores></datosSensores>
-        <datosActuadores></datosActuadores>
-        <imagenes>
-            <!-- secuencia de entre 0 y número ideterminado de imágenes-->
-            <imagen idImagen="IMAG12">
-            </imagen>
-            <datosImagen>
-                <dimensiones>
-                    <ancho></ancho>
-                    <alto></alto>
-                </dimensiones>
-                <descripcion></descripcion>
-                <!-- formato podrá ser GIF, JPEG o PNG-->
-                <contenido formato=""></contenido>
-            </datosImagen>
-        </imagenes>
-    </datosMision>
-</documentoMision>
+<tns:documentoMision xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns:pro="http://www.piat.upm.es/propietarioSchema"
+            xmlns:ima="http://www.piat.upm.es/imagenSchema"
+            xmlns:ide="http://www.piat.upm.es/identificacionSchema"
+
+            xmlns:tns="http://www.piat.upm.es/documentoMisionSchema"
+            xsi:schemaLocation="http://www.piat.upm.es/documentoMisionSchema ./documentoMisionSchema.xsd">
+    <tns:metadatos>
+        <tns:identificacion version="adfg" codigoMision="M123ah">
+            <ide:descripcion>
+                <ide:keyword>22</ide:keyword>
+            </ide:descripcion>
+        </tns:identificacion>
+        <tns:propietario identificadorFiscal="12423451A">
+            <pro:nombrePR>afd</pro:nombrePR>
+            <pro:contacto>
+                <pro:email>fdffdfa</pro:email>
+                <pro:url>asdff</pro:url>
+            </pro:contacto>
+        </tns:propietario>
+    </tns:metadatos>
+    <tns:datosMision idDM="">
+        <tns:descripcionDM>22</tns:descripcionDM>
+        <tns:formatoDatos>XML</tns:formatoDatos>
+        <tns:lenguaje>af</tns:lenguaje>
+        <tns:fecha>2020-09-09</tns:fecha>
+        <tns:datosSensores></tns:datosSensores>
+        <tns:datosActuadores>siuu</tns:datosActuadores>
+        <tns:imagenes idImagen="IMAG01">
+            <ima:datosImagen>
+                <ima:dimensiones>
+                    <ima:ancho>2</ima:ancho>
+                    <ima:alto>33</ima:alto>
+                </ima:dimensiones>
+                <ima:descripcion>let´s goo</ima:descripcion>
+                <ima:contenido>whut</ima:contenido>
+            </ima:datosImagen>
+        </tns:imagenes>
+    </tns:datosMision>
+</tns:documentoMision>
+    
