@@ -21,34 +21,19 @@
         <xsd:attribute name="matriculaDron" type="tns:matriculaDronType" use="required"/>
     </xsd:complexType>
 
-<!--     
+    <xsd:simpleType name="tipoDronType">
+        <xsd:restriction base="xsd:token">
+            <xsd:enumeration value="autónomo"/>
+            <xsd:enumeration value="controlado"/>
+            <xsd:enumeration value="monitorizado"/>
+        </xsd:restriction>
+    </xsd:simpleType>
     <xsd:simpleType name="claseDronType">
-        <xsd:list>
-            <xsd:simpleType>
-                <xsd:restriction base="xsd:string">
-                    <xsd:enumeration value="autónomo"/>
-                    <xsd:enumeration value="controlado"/>
-                    <xsd:enumeration value="monitorizado"/>
-                </xsd:restriction>
-            </xsd:simpleType>
-        </xsd:list>
-    </xsd:simpleType> -->
-
-<!-- sarita -->
-<xsd:simpleType name="claseDronType">
-    <xsd:union memberTypes="tns:tipoDronType xsd:integer"/>
-</xsd:simpleType>
-<xsd:simpleType name="tipoDronType">
-    <xsd:restriction base="xsd:token">
-        <xsd:enumeration value="autónomo"/>
-        <xsd:enumeration value="controlado"/>
-        <xsd:enumeration value="monitorizado"/>
-    </xsd:restriction>
-</xsd:simpleType>
-<xsd:simpleType name="tipoListaClaseDron">
-    <xsd:list itemType="tns:claseDronType"></xsd:list>
-</xsd:simpleType>
-<!-- sarita -->
+        <xsd:union memberTypes="tns:tipoDronType xsd:integer"/>
+    </xsd:simpleType>
+    <xsd:simpleType name="tipoListaClaseDron">
+        <xsd:list itemType="tns:claseDronType"/>
+    </xsd:simpleType>
 
     <xsd:simpleType name="tipoLista">
         <xsd:union memberTypes= "xsd:double xsd:integer"/>
@@ -63,7 +48,12 @@
 
     <xsd:complexType name="configuracionDronType">
         <xsd:sequence>
-            <xsd:element name="sensores" type="sen:sensoresType" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="sensores" type="sen:sensoresType" minOccurs="0" maxOccurs="1">
+                <xsd:key name="sensoresKey">
+                    <xsd:selector xpath="./sen:sensor"/>
+                    <xsd:field xpath="@idSensor"/>
+                </xsd:key>
+            </xsd:element>
             <xsd:element name="actuadores" type="act:actuadoresType" minOccurs="0" maxOccurs="1"/>
         </xsd:sequence>
     </xsd:complexType>
