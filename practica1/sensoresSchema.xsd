@@ -21,11 +21,11 @@
     <xsd:complexType name="sensorType">
         <xsd:sequence>
             <xsd:element name="elementoSensado" type="xsd:string" minOccurs="1"/>
-            <xsd:element name="rango" type="tns:rangoType"/>
+            <xsd:element name="rango" type="tns:rangoType" minOccurs="1"/>
         </xsd:sequence>
         <xsd:attribute name="idSensor" type="tns:idSensorType" use="required"/>
     </xsd:complexType>
-
+    
     <!-- los siguientes tipos los usaremos para definir el tipo de rango -->
     <xsd:simpleType name="tRango">
         <xsd:union memberTypes= "xsd:double xsd:integer"/>
