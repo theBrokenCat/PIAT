@@ -18,15 +18,28 @@
       <xsd:element name="identificacion" type="ide:identificacionType"/>
       <xsd:element name="drones">
         <xsd:complexType>
-          <xsd:sequence minOccurs="1">
-            <xsd:element name="dron" type="dro:dronType"/>
+          <xsd:sequence >
+            <xsd:element name="dron" type="dro:dronType" minOccurs="1" maxOccurs="unbounded"/>
           </xsd:sequence>
         </xsd:complexType>
+        <xsd:key name="dronKey">
+          <xsd:selector xpath="./tns:dron"/>
+          <xsd:field xpath="@matriculaDron"/>
+        </xsd:key>
       </xsd:element>
       <xsd:element name="tareas">
         <xsd:complexType>
           <xsd:sequence minOccurs="1">
-            <xsd:element name="tarea" type="tar:tareaType"/>
+            <xsd:element name="tarea" type="tar:tareaType">
+              <xsd:key name="tareaKey">
+                <xsd:selector xpath="./tar:tarea"/>
+                <xsd:field xpath="@idTarea"/>
+              </xsd:key>
+              <xsd:key name="emailKey">
+                <xsd:selector xpath="./tar:tarea"/>
+                <xsd:field xpath="@idEmail"/>
+              </xsd:key>
+            </xsd:element>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>

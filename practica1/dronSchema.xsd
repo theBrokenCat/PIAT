@@ -9,8 +9,7 @@
     <xsd:import namespace="http://www.piat.upm.es/sensoresSchema" schemaLocation="./sensoresSchema.xsd"/>
     <xsd:import namespace="http://www.piat.upm.es/actuadoresSchema" schemaLocation="./actuadoresSchema.xsd"/>
 
-    <xsd:element name="dron" type="tns:dronType">
-    </xsd:element>
+    <xsd:element name="dron" type="tns:dronType"></xsd:element>
 
     <xsd:complexType name="dronType">
         <xsd:sequence>
@@ -54,7 +53,12 @@
                     <xsd:field xpath="@idSensor"/>
                 </xsd:key>
             </xsd:element>
-            <xsd:element name="actuadores" type="act:actuadoresType" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="actuadores" type="act:actuadoresType" minOccurs="0" maxOccurs="1">
+                <xsd:key name="actuadoresKey">
+                    <xsd:selector xpath="./act:actuador"/>
+                    <xsd:field xpath="@idActuador"/>
+                </xsd:key>
+            </xsd:element>
         </xsd:sequence>
     </xsd:complexType>
 

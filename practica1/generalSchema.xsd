@@ -2,19 +2,35 @@
             targetNamespace="http://www.piat.upm.es/generalSchema" 
             xmlns:tns="http://www.piat.upm.es/generalSchema"
             xmlns:mis="http://www.piat.upm.es/misionSchema"
+            xmlns:ide="http://www.piat.upm.es/identificacionSchema"
             xmlns:doc="http://www.piat.upm.es/documentoMisionSchema"
+            xmlns:pro="http://www.piat.upm.es/propietarioSchema"
             elementFormDefault="qualified">
 
     <xsd:import namespace="http://www.piat.upm.es/misionSchema" schemaLocation="./misionSchema.xsd"/>
     <xsd:import namespace="http://www.piat.upm.es/documentoMisionSchema" schemaLocation="./documentoMisionSchema.xsd"/>
-
+    <xsd:import namespace="http://www.piat.upm.es/identificacionSchema" schemaLocation="./identificacionSchema.xsd"/>
+    <xsd:import namespace="http://www.piat.upm.es/propietarioSchema" schemaLocation="./propietarioSchema.xsd"/>   
     <xsd:element name="generalMision" type="tns:generalType"/>
 
     <xsd:complexType name="generalType">
         <xsd:sequence>
-            <xsd:element name="mision" type="mis:misionType" minOccurs="1" maxOccurs="unbounded"/>
-            <xsd:element name="documentoMision" type="doc:documentoMisionType" minOccurs="1" maxOccurs="unbounded"/>
+            <xsd:element name="mision" type="ide:codigoMisionType" minOccurs="1" maxOccurs="unbounded"/>
+            <xsd:element name="documentoMision" type="tns:documentoMisionType" minOccurs="1" maxOccurs="unbounded"/>
         </xsd:sequence>
     </xsd:complexType>
+
+    <xsd:complexType name="documentoMisionType">
+        <xsd:complexContent>
+            <xsd:extension base="ide:identificacionType">
+                 <xsd:attributeGroup ref="tns:AtributosType"/>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:attributeGroup name="AtributosType">
+        <xsd:attribute name="numeroOrden" type="xsd:integer" use="required"/>
+        <xsd:attribute name="propietario" type="pro:palabraType" use="required"/>
+    </xsd:attributeGroup>
 
 </xsd:schema>

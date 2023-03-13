@@ -27,7 +27,6 @@
                 </xsd:restriction>
             </xsd:simpleType>
         </xsd:attribute>
-        
     </xsd:complexType>
     
     <xsd:complexType name="alcanceActuacionType">

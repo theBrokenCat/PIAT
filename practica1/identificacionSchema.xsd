@@ -19,7 +19,7 @@
             </xsd:simpleType>
 
             <xsd:complexType name="descripcionType" mixed="true">
-                    <xsd:choice maxOccurs="unbounded">
+                    <xsd:choice minOccurs="0" maxOccurs="unbounded">
                         <xsd:element name="keyword" type="tns:keywordType"/>
                     </xsd:choice>
             </xsd:complexType>
