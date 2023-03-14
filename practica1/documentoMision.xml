@@ -19,23 +19,72 @@
                 <pro:url>asdff</pro:url>
             </pro:contacto>
         </tns:propietario>
+        <tns:propietario identificadorFiscal="12423421A">
+            <pro:nombrePR>afd</pro:nombrePR>
+            <pro:contacto>
+                <pro:email>fdffdfa</pro:email>
+                <pro:url>asdff</pro:url>
+            </pro:contacto>
+        </tns:propietario>
     </tns:metadatos>
-    <tns:datosMision idDM="">
+    <tns:datosMision idDM="1">
         <tns:descripcionDM>22</tns:descripcionDM>
         <tns:formatoDatos>XML</tns:formatoDatos>
         <tns:lenguaje>af</tns:lenguaje>
         <tns:fecha>2020-09-09</tns:fecha>
         <tns:datosSensores></tns:datosSensores>
         <tns:datosActuadores>siuu</tns:datosActuadores>
-        <tns:imagenes idImagen="IMAG01">
-            <ima:datosImagen>
-                <ima:dimensiones>
-                    <ima:ancho>2</ima:ancho>
-                    <ima:alto>33</ima:alto>
-                </ima:dimensiones>
-                <ima:descripcion>let´s goo</ima:descripcion>
-                <ima:contenido>whut</ima:contenido>
-            </ima:datosImagen>
+        <tns:imagenes>
+            <tns:imagen idImagen="IMAG01">
+                <ima:datosImagen>
+                    <ima:dimensiones>
+                        <ima:ancho>2</ima:ancho>
+                        <ima:alto>33</ima:alto>
+                    </ima:dimensiones>
+                    <ima:descripcion>lets goo</ima:descripcion>
+                    <ima:contenido>whut</ima:contenido>
+                </ima:datosImagen>
+            </tns:imagen>
+            <tns:imagen idImagen="IMAG02">
+                <ima:datosImagen>
+                    <ima:dimensiones>
+                        <ima:ancho>2</ima:ancho>
+                        <ima:alto>33</ima:alto>
+                    </ima:dimensiones>
+                    <ima:descripcion>lets goo</ima:descripcion>
+                    <ima:contenido>whut</ima:contenido>
+                </ima:datosImagen>
+            </tns:imagen>
+        </tns:imagenes>
+    </tns:datosMision>
+    <tns:datosMision idDM="4">
+        <tns:descripcionDM>22</tns:descripcionDM>
+        <tns:formatoDatos>XML</tns:formatoDatos>
+        <tns:lenguaje>af</tns:lenguaje>
+        <tns:fecha>2020-09-09</tns:fecha>
+        <tns:datosSensores></tns:datosSensores>
+        <tns:datosActuadores>siuu</tns:datosActuadores>
+        <tns:imagenes>
+            <tns:imagen idImagen="IMAG01">
+                <ima:datosImagen>
+                    <ima:dimensiones>
+                        <ima:ancho>2</ima:ancho>
+                        <ima:alto>33</ima:alto>
+                    </ima:dimensiones>
+                    <ima:descripcion>lets goo</ima:descripcion>
+                    <ima:contenido>whut</ima:contenido>
+                </ima:datosImagen>
+            </tns:imagen>
+            <tns:imagen idImagen="IMAG02">
+                <ima:datosImagen>
+                    <ima:dimensiones>
+                        <ima:ancho>2</ima:ancho>
+                        <ima:alto>33</ima:alto>
+                    </ima:dimensiones>
+                    <ima:descripcion>lets goo</ima:descripcion>
+                    <ima:contenido>whut</ima:contenido>
+                </ima:datosImagen>
+            </tns:imagen>
         </tns:imagenes>
     </tns:datosMision>
 </tns:documentoMision>

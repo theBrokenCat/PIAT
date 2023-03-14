@@ -5,14 +5,14 @@
     
     <!-- DUDAS CON EL KEY-->
     <xsd:element name="tarea" type="tns:tareaType">
-        <xsd:key name="idTareaKey">
+        <!-- <xsd:key name="idTareaKey">
             <xsd:selector xpath="."/>
             <xsd:field xpath="@idTarea"/>
         </xsd:key>
         <xsd:unique name="emailUnico">
             <xsd:selector xpath="./tns:email"/>
             <xsd:field xpath="./tareaSchema.xsd"/>
-        </xsd:unique>
+        </xsd:unique> -->
     </xsd:element>
     <!-- DUDAS CON EL KEY-->
 
@@ -32,9 +32,7 @@
     <xsd:complexType name="responsableTareaType">
         <xsd:sequence>
             <xsd:element name="url" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
-            <xsd:element name="email" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
-                
-            </xsd:element>
+            <xsd:element name="email" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
         </xsd:sequence>
         
     </xsd:complexType>

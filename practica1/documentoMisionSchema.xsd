@@ -10,17 +10,22 @@
     <xsd:import namespace="http://www.piat.upm.es/identificacionSchema" schemaLocation="./identificacionSchema.xsd"/>
     <xsd:import namespace="http://www.piat.upm.es/imagenSchema" schemaLocation="./imagenSchema.xsd"/>
 
-    <xsd:element name="documentoMision" type="tns:documentoMisionType"/>
+    <xsd:element name="documentoMision" type="tns:documentoMisionType">
+        <xsd:key name="idDMKey">
+            <xsd:selector xpath="tns:datosMision"/>
+            <xsd:field xpath="@idDM"/>
+        </xsd:key>
+    </xsd:element>
 
     <xsd:complexType name="documentoMisionType">
         <xsd:sequence minOccurs="1" maxOccurs="unbounded">
-            <xsd:element name="metadatos" type="tns:metadatosType" maxOccurs="1"/>
-            <xsd:element name="datosMision" type="tns:datosMisionType" minOccurs="1" maxOccurs="unbounded">
-                <xsd:unique name="idDMUnique">
-                    <xsd:selector xpath="."/>
-                    <xsd:field xpath="@idDM"></xsd:field>
-                </xsd:unique>
+            <xsd:element name="metadatos" type="tns:metadatosType" maxOccurs="1">
+                <xsd:key name="identificadorFiscalKey">
+                    <xsd:selector xpath="./tns:propietario"/>
+                    <xsd:field xpath="@identificadorFiscal"></xsd:field>
+                </xsd:key>
             </xsd:element>
+            <xsd:element name="datosMision" type="tns:datosMisionType" minOccurs="1" maxOccurs="unbounded"/>
         </xsd:sequence>
     </xsd:complexType>
 
@@ -30,7 +35,7 @@
     <xsd:complexType name="metadatosType">
         <xsd:sequence>
             <xsd:element name="identificacion" type="tns:identificacionType"/>
-            <xsd:element name="propietario" type="pro:propietarioType"/>
+            <xsd:element name="propietario" type="pro:propietarioType" maxOccurs="unbounded"/>
         </xsd:sequence>
     </xsd:complexType>
     <!-- metadatos-->
@@ -46,7 +51,7 @@
 
     <xsd:simpleType name="versionType">
         <xsd:restriction base="xsd:string">
-            <xsd:pattern value="[a-zA-Z0-9]{4}"></xsd:pattern>
+            <xsd:pattern value="[a-zA-Z0-9]{4}"/>
         </xsd:restriction>
     </xsd:simpleType>
     <!-- identificacion-->
@@ -63,9 +68,19 @@
             <xsd:element name="fecha" type="tns:fechaType" minOccurs="0" maxOccurs="1"/>
             <xsd:element name="datosSensores" type="tns:datosSensoresType" minOccurs="1"/>
             <xsd:element name="datosActuadores" type="tns:datosActuadoresType" minOccurs="0"/>
-            <xsd:element name="imagenes" type="ima:imagenType" minOccurs="0"/>
+            <xsd:element name="imagenes" minOccurs="0">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="imagen" type="ima:imagenType" minOccurs="0" maxOccurs="unbounded"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+                <xsd:key name="idImagenKey">
+                    <xsd:selector xpath="./tns:imagen"/>
+                    <xsd:field xpath="@idImagen"/>
+                </xsd:key>
+            </xsd:element>
         </xsd:sequence>
-        <xsd:attribute name="idDM" use="required"/>
+        <xsd:attribute name="idDM" type="xsd:int" use="required"/>
     </xsd:complexType>
     <!-- datosMision-->
 

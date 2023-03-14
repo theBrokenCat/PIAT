@@ -29,19 +29,16 @@
       </xsd:element>
       <xsd:element name="tareas">
         <xsd:complexType>
-          <xsd:sequence minOccurs="1">
-            <xsd:element name="tarea" type="tar:tareaType">
-              <xsd:key name="tareaKey">
-                <xsd:selector xpath="./tar:tarea"/>
-                <xsd:field xpath="@idTarea"/>
-              </xsd:key>
-              <xsd:key name="emailKey">
-                <xsd:selector xpath="./tar:tarea"/>
-                <xsd:field xpath="@idEmail"/>
-              </xsd:key>
-            </xsd:element>
+          <xsd:sequence minOccurs="1" maxOccurs="unbounded">
+            <xsd:element name="tarea" type="tar:tareaType"/>
           </xsd:sequence>
         </xsd:complexType>
+        <xsd:key name="idTareaKey">
+            <xsd:selector xpath="./tns:tarea"/>
+            <xsd:field xpath="@idTarea"/>
+        </xsd:key>
+        
+        
       </xsd:element>
     </xsd:sequence>
   </xsd:complexType>

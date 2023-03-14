@@ -151,6 +151,28 @@
                 <tar:forma>esfera</tar:forma>
             </tar:areaGeografica>
         </tns:tarea>
+        <tns:tarea idTarea="TAR-00002">
+            <tar:descripcionTarea>dasdfsa</tar:descripcionTarea>
+            <tar:responsableTarea>
+                <tar:url></tar:url>
+                <tar:email>asdf</tar:email>
+                <tar:email>asdf</tar:email>
+            </tar:responsableTarea>
+            <tar:dronesTarea>
+                <tar:dronTarea>
+                    <tar:actividadMision>fasff</tar:actividadMision>
+                    <tar:matricula></tar:matricula>
+                </tar:dronTarea>
+            </tar:dronesTarea>
+            <tar:areaGeografica>
+                <tar:centro>
+                    <tar:longitud>4</tar:longitud>
+                    <tar:latitud>33</tar:latitud>
+                </tar:centro>
+                <tar:profundidad>2 3 1</tar:profundidad>
+                <tar:forma>esfera</tar:forma>
+            </tar:areaGeografica>
+        </tns:tarea>
         
     </tns:tareas>
 </tns:mision>

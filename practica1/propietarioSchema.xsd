@@ -3,19 +3,14 @@
             xmlns:tns="http://www.piat.upm.es/propietarioSchema"
             elementFormDefault="qualified">
 
-    <xsd:element name="propietario" type="tns:propietarioType">
-        <xsd:key name="identificadorFiscalKey">
-            <xsd:selector xpath="."/>
-            <xsd:field xpath="@identificadorFiscal"></xsd:field>
-        </xsd:key>
-    </xsd:element>
+    <xsd:element name="propietario" type="tns:propietarioType"/>
 
     <xsd:complexType name="propietarioType">
         <xsd:sequence>
             <xsd:element name="nombrePR" type="xsd:string" minOccurs="1"/>
             <xsd:element name="contacto" type="tns:contactoType"/>
         </xsd:sequence>
-        <xsd:attribute name="identificadorFiscal" type="tns:palabraType" use="required"/>
+        <xsd:attribute name="identificadorFiscal" type="tns:palabraType" use="optional"/>
     </xsd:complexType>
 
     <xsd:complexType name="contactoType">

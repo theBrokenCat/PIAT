@@ -7,12 +7,7 @@
     <xsd:notation name="jpeg" public="image/jpeg"/>
     <xsd:notation name="png" public="image/png"/>
     
-    <xsd:element name="imagen" type="tns:imagenType">
-        <xsd:key name="idImagenKey">
-            <xsd:selector xpath="."/>
-            <xsd:field xpath="@idImagen"/>
-        </xsd:key>
-    </xsd:element>
+    <xsd:element name="imagen" type="tns:imagenType"/>
 
     <xsd:complexType name="imagenType">
         <xsd:sequence>
